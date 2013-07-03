@@ -131,7 +131,7 @@ article p {
   margin: 0 auto;
   text-align: justify;
   text-justify: auto;
-  max-width: 40em; }
+  max-width: 40rem; }
   article p + article p {
     text-indent: 1.5em; }
 article h1, article h2, article h3, article h4, article h5, article h6 {
@@ -270,7 +270,7 @@ input[type="checkbox"], input[type="radio"] {
     clear: both;
     letter-spacing: 0;
     margin: 0 auto;
-    max-width: 40em;
+    max-width: 40rem;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 200;
     font-size: 0.9em; }
@@ -381,7 +381,7 @@ section[role="marquee"] {
 
   a[role="button"] {
     display: block;
-    max-width: 40em;
+    max-width: 40rem;
     margin: 0.25em auto; }
 
   article {

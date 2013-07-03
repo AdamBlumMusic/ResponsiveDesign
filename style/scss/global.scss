@@ -44,7 +44,7 @@ $btn-font:  $sans-serif;
 
 
 
-$paragraph-width:  40em;
+$paragraph-width:  40rem;
 
 
 
@@ -261,7 +261,7 @@ h1,h2,h3,h4,h5,h6 {
   font-weight:  700;
   letter-spacing:  -0.03125em;
   text-transform:  uppercase;
-  max-width: 40rem; 
+  max-width: $paragraph-width; 
 }
 
 h1 {font-size: 4.0625rem;}
