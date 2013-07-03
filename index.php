@@ -6,7 +6,7 @@
 	<title>Responsive Design</title>
 </head>
 <body>
-	<header><p>header</p>
+	<header><h1>header</h1>
 
   <nav>
     <a href="#">Home</a>

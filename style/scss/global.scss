@@ -196,6 +196,8 @@ header, footer, aside, nav, section {
 
 header {
   background: $dark;
+
+  h1 {color:  $white;}
   
   nav {
     margin:  0.5em;

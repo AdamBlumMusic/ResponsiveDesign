@@ -92,6 +92,8 @@ header, footer, aside, nav, section {
 
 header {
   background: #4d4d4d; }
+  header h1 {
+    color: white; }
   header nav {
     margin: 0.5em; }
     header nav a {
