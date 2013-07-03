@@ -1,1 +1,577 @@
 /*		Responsive Design: A Project by Adam Blum		*/
+
+
+
+
+/*  Variables  */
+
+
+  /*  Colors  */
+$blue: #6CE0F1;
+$red: #FB4485;
+$green: #349D92;
+$orange: #f7d700;
+$maroon: #903;
+$white: #fff;
+$black: #000;
+$yellow: #f1c40f;
+$pink: #E0218A;
+$purple: #8e44ad;
+$dark: #4d4d4d;
+$gray: #2c3338;
+$lite:  #fafafa;
+$medgray:  #ddd;
+
+
+
+
+$input-bg: $lite;
+$input-border:  $medgray;
+
+
+$btncolor:  $blue;
+
+
+  /*  Font Stacks  */
+$sans-serif: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$serif: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+$monospace: Consolas, "Bitstream Vera Sans Mono", "Andale Mono", Monaco, "DejaVu Sans Mono", "Lucida Console", monospace;
+
+
+$body-font:  $sans-serif;
+$heading-font:  $sans-serif;
+$btn-font:  $sans-serif;
+
+
+
+
+$paragraph-width:  40em;
+
+
+
+/*  Icon Font  */
+
+@font-face {
+	font-family: 'AdamBlumIcons';
+	src:url('http://s.cdpn.io/29719/AdamBlumIcons.eot');
+	src:url('http://s.cdpn.io/29719/AdamBlumIcons.eot?#iefix') format('embedded-opentype'),
+		url('http://s.cdpn.io/29719/AdamBlumIcons.svg') format('woff'),
+		url('http://s.cdpn.io/29719/AdamBlumIcons.ttf') format('truetype'),
+		url('http://s.cdpn.io/29719/AdamBlumIcons.woff#AdamBlumIcons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[data-icon]:before {
+	font-family: 'AdamBlumIcons';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*  Mixins  */
+@mixin trans{
+transition: all 0.2s ease-in-out;
+}
+
+
+
+@mixin no-select{  
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+
+  /* No support for these yet, use at own risk */
+  -o-user-select: none;
+  user-select: none;          
+}
+
+
+
+@mixin icn ($icn) {
+  &:before {
+  content:  $icn;
+  font-family: 'AdamBlumIcons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  padding-right:  0.5em;
+  -webkit-font-smoothing: antialiased;
+  }
+}
+
+$btn-border-width:  2px;
+
+
+@mixin btn ($bg){
+color:  #fff;
+	background:  darken($bg, 10%);
+	border-width:  $btn-border-width;
+	border-color:  darken($bg, 20%);
+	border-style:  solid;
+&:hover, &:focus {
+	background:  $bg;
+	color:  #fff;
+}
+
+
+}
+
+
+
+* {box-sizing: border-box !important;}
+
+
+a {
+@include trans;
+}
+body {
+  font-family: $sans-serif;
+  overflow-x:  hidden;
+}
+
+
+
+/*  Flexbox Layout  */
+
+article {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row;
+  flex-flow: row;
+  & > section {
+    -webkit-flex: 3 1 60%;
+    flex: 3 1 60%;
+    -webkit-order: 2;
+    order: 2;
+  }
+
+  & > nav {
+    -webkit-flex: 1 6 20%;
+    flex: 1 6 20%;
+    -webkit-order: 1;
+    order: 1;
+  }
+
+  & > aside {
+    -webkit-flex: 1 6 20%;
+    flex: 1 6 20%;
+    -webkit-order: 3;
+    order: 3;
+  }
+}
+
+header, footer {
+  display: block;
+}
+
+
+
+
+
+/*  Design  */
+
+
+
+header, footer, aside, nav, section {
+  padding: 0.5em 1em;
+}
+
+header {
+  background: $dark;
+  
+  nav {
+    margin:  0.5em;
+    a {
+    padding: 1em;
+    margin: 0.25em;
+      color:  $white;
+      &:hover {color:  $orange; background:  lighten($dark, 3%);}
+      text-decoration:  none;
+      }
+  }
+  
+}
+
+footer {
+  background: $dark;
+}
+
+article {
+
+aside {
+  background: $blue;
+}
+
+nav {
+  background: $lite;
+  & a {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: column;
+    flex-flow: column;
+    padding: 1em;
+    margin: 0.25em;
+    text-decoration: none;
+    color: $white;
+    &:hover {
+      background: darken($purple, 10%);
+    }
+  }
+}
+
+section {
+  background: $white;
+}
+
+p {
+  font-size: 100%;
+  line-height: 1.5;
+  margin: 0 auto;
+  text-align: justify;
+  text-justify: auto;
+  max-width: $paragraph-width;
+  & + & {
+    text-indent: 1.5em;
+  }
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family:  $heading-font;
+  margin:  0.5em auto 0.25em auto;
+  font-weight:  700;
+  letter-spacing:  -0.03125em;
+  text-transform:  uppercase;
+  max-width: 40rem; 
+}
+
+h1 {font-size: 4.0625rem;}
+h2 {font-size: 3.25rem;}
+h3 {font-size: 2.5625rem;}
+h4 {font-size: 2rem;}
+h5 {font-size: 1.5625rem;}
+h6 {font-size: 1.25rem;}
+
+}
+
+
+
+
+/*  Form Stuff  */
+
+
+label {
+ @include no-select; 
+}
+
+form {
+font-family: $sans-serif;
+margin:  1em auto;
+max-width:  20em;
+
+&[role="form"] {
+  max-width:  100%;
+
+  input {width:  100%;}
+
+}
+
+}
+
+input {
+  -webkit-appearance:  none;
+  -moz-appearance:  none;
+  appearance:  none;
+  border-radius:  0;
+}
+
+
+input[type="text"], input[type="password"], input[type="email"], input[type="search"] {
+  display:  block;
+  font-size:  1em;
+  width:  100%;
+  font-family: $sans-serif;
+  padding:  1em 2em 1em 1em;
+  background:  $input-bg;
+  border:  1px solid $input-border;
+  margin:  0.5em 0 0 0;
+  outline:  none;
+  @include trans;
+  
+}
+
+
+
+textarea{
+  width: 100%;
+  min-height:  10em;
+  padding:  1em 2em 1em 1em;
+  background:  $input-bg;
+  border:  1px solid $input-border;
+  margin:  0.5em auto;
+  outline:  none;
+  @include trans;
+  font-size:  1em;
+  font-family: $sans-serif;
+  font-weight:  200;
+  box-sizing:  border-box;
+  resize:  none;
+
+}
+
+
+
+
+
+input[type="checkbox"], input[type="radio"]{
+  display:  none !important;
+
+  & + label {
+    display: block;
+    padding:  0.5em;
+    position:  relative;
+    cursor:  pointer;
+    @include trans;
+    @include icn("\e000");
+    &:before {opacity:  0.1;}
+
+    font-weight:  500;
+    &:first-of-type {margin-top:  1em;}
+
+  }
+
+  &:checked + label {
+
+
+&:before {
+  @include trans;
+opacity:  1;
+}
+
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+[role="button"]{
+text-decoration: none !important;
+  font-size:  1em;
+font-family:  $btn-font;
+padding: 0.75em 1.5em;
+text-align:  center;
+cursor: pointer;
+font-weight: 700;
+display: inline-block;
+text-transform: uppercase;
+margin: 0.25em auto;
+@include trans;
+@include no-select;
+@include btn($btncolor);
+
+
+& i {
+		display:  block;
+		clear:  both;
+		letter-spacing:  0;
+		margin:  0 auto;
+		max-width:  $paragraph-width;
+		font-family:  $btn-font;
+		font-weight:  200;
+		font-size:  0.9em;
+	}
+
+
+
+&[href$=".jpg"], &[href$=".png"] {
+	@include icn("\e004");
+}
+  
+  &[type="submit"] {width:  100%;}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/*  Image Slider  */
+
+
+
+
+
+
+
+/* Animation Ketframes*/
+@keyframes fadeinphoto{
+0%{opacity:0;}
+50%{opacity:1;}
+100%{opacity:0;}
+}
+
+@-moz-keyframes fadeinphoto{
+0%{opacity:0;}
+50%{opacity:1;}
+100%{opacity:0;}
+}
+
+@-webkit-keyframes fadeinphoto{
+0%{opacity:0;}
+50%{opacity:1;}
+100%{opacity:0;}
+}
+
+@-o-keyframes fadeinphoto{
+0%{opacity:0;}
+50%{opacity:1;}
+100%{opacity:0;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+section[role="marquee"] {
+  
+  width:  100%;
+  position: relative;
+  padding-bottom: 56.25%;
+  
+  img {
+   width: 100%;
+   position: absolute;
+   top:  0;
+    left:  0;
+    right:  0;
+    
+    &:nth-of-type(1){opacity:  0;
+    animation: fadeinphoto 5s 0s infinite;
+-moz-animation: fadeinphoto 5s 0s infinite;
+-webkit-animation: fadeinphoto 5s 0s infinite;
+-o-animation: fadeinphoto 5s 0s infinite;
+    }
+    &:nth-of-type(2){opacity:  0;
+    animation: fadeinphoto 5s 5s infinite;
+-moz-animation: fadeinphoto 5s 5s infinite;
+-webkit-animation: fadeinphoto 5s 5s infinite;
+-o-animation: fadeinphoto 5s 5s infinite;
+    }
+    &:nth-of-type(3){opacity:  0;
+    animation: fadeinphoto 5s 0s infinite;
+-moz-animation: fadeinphoto 5s 0s infinite;
+-webkit-animation: fadeinphoto 5s 0s infinite;
+-o-animation: fadeinphoto 5s 0s infinite;
+    }
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+/*  Media Queries  */
+
+
+
+@media all and (min-width: 40em) and (max-width: 60em) {
+
+  body {font-size: 1.25rem;}
+
+
+a[role="button"] {
+  display:  block;
+  max-width:  50%;
+  margin:  0.25em auto;
+}
+          
+  article {
+    -webkit-flex-flow: column;
+    flex-flow: column;
+  }
+  
+  nav a {
+    text-align: center;
+  }
+
+
+}
+        
+        
+@media all and (max-width: 40em) {
+
+  body {font-size: 1.5rem;}
+
+a[role="button"] {
+  display:  block;
+  max-width:  $paragraph-width;
+  margin:  0.25em auto;
+}
+
+  article {
+    -webkit-flex-flow: column;
+    flex-flow: column;
+  }
+
+  nav a {
+    text-align: center;
+  }
+
+
+header nav a {
+           display:  block;
+           text-align:  center;
+          }
+
+}
