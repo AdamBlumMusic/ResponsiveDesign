@@ -72,12 +72,12 @@ article {
     flex: 3 1 60%;
     -webkit-order: 2;
     order: 2; }
-  article > nav {
+  article > aside:nth-of-type(1) {
     -webkit-flex: 1 6 20%;
     flex: 1 6 20%;
     -webkit-order: 1;
     order: 1; }
-  article > aside {
+  article > aside:nth-of-type(2) {
     -webkit-flex: 1 6 20%;
     flex: 1 6 20%;
     -webkit-order: 3;
@@ -108,11 +108,11 @@ header {
 footer {
   background: #4d4d4d; }
 
-article aside {
+article aside:nth-of-type(2) {
   background: #6ce0f1; }
-article nav {
-  background: #fafafa; }
-  article nav a {
+article aside:nth-of-type(1) {
+  background: #6ce0f1; }
+  article aside:nth-of-type(1) a {
     display: -webkit-flex;
     display: flex;
     -webkit-flex-flow: column;
@@ -121,7 +121,7 @@ article nav {
     margin: 0.25em;
     text-decoration: none;
     color: white; }
-    article nav a:hover {
+    article aside:nth-of-type(1) a:hover {
       background: #703688; }
 article section {
   background: white; }

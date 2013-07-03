@@ -163,14 +163,14 @@ article {
     order: 2;
   }
 
-  & > nav {
+  & > aside:nth-of-type(1) {
     -webkit-flex: 1 6 20%;
     flex: 1 6 20%;
     -webkit-order: 1;
     order: 1;
   }
 
-  & > aside {
+  & > aside:nth-of-type(2) {
     -webkit-flex: 1 6 20%;
     flex: 1 6 20%;
     -webkit-order: 3;
@@ -218,12 +218,12 @@ footer {
 
 article {
 
-aside {
+aside:nth-of-type(2) {
   background: $blue;
 }
 
-nav {
-  background: $lite;
+aside:nth-of-type(1) {
+  background: $blue;
   & a {
     display: -webkit-flex;
     display: flex;
